@@ -24,7 +24,6 @@ Original file is located at
 
 ### Para iniciar el proyecto, que implica un análisis exhaustivo de los datos contenidos en los conjuntos de datos (Dataset), es fundamental llevar a cabo la configuración inicial del entorno de trabajo. Esto implica la importación de las bibliotecas necesarias que serán utilizadas en el proceso de análisis de datos. ###
 """
-
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
