@@ -37,119 +37,42 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 """
 
 df_empleados = pd.read_csv("DataSetEmpleado.csv")
-df_empleados
 
 """# DATA CLEANING (Limpieza de Datos) #
 
 ## A continuación, después de importar los archivos en formato .csv y antes de proceder con el análisis, se lleva a cabo una exhaustiva limpieza de los datos. El objetivo principal de esta etapa es identificar y abordar posibles valores nulos o atípicos que puedan estar presentes en los datos. Si se encuentran tales datos (en caso de que existan), se emprende un proceso para resolverlos y así garantizar una mayor precisión en los resultados finales. ##
 """
 
-print(df_empleados.info())
-print(df_empleados.describe())
-
 """## Ahora, vamos a verificar la presencia de valores nulos en nuestro dataframe para asegurarnos de la integridad de los datos. ##
 
 """
 
-print(df_empleados.isnull().all())
 
 """## Realizaremos una comprobación para asegurarnos de que no existan datos duplicados en las columnas de nuestros dataframes.##"""
 
-print(df_empleados.duplicated().value_counts())
 
 """## Seleccionamos las columnas más relevantes para este caso, de manera que podamos simplificar un poco las caracteristicas más importantes. ##"""
 
 columnas_seleccionadas = ['Age', 'Attrition', 'BusinessTravel', 'DailyRate', 'Department', 'DistanceFromHome', 'Education', 'EducationField', 'TotalWorkingYears', 'WorkLifeBalance']
 df_filtrado = df_empleados[columnas_seleccionadas]
-df_filtrado
 
 """## Graficamos los datos de las columnas seleccionadas ##"""
-
-plt.hist(df_filtrado['Age'], bins=10, edgecolor='black')
-plt.title('Histograma de {}'.format('Edad'))
-plt.xlabel('Edad')
-plt.ylabel('Frecuencia')
-plt.show()
-
-plt.hist(df_filtrado['Attrition'], bins=10, edgecolor='black')
-plt.title('Histograma de {}'.format('Desgaste'))
-plt.xlabel('Desgaste')
-plt.ylabel('Frecuencia')
-plt.show()
-
-plt.hist(df_filtrado['BusinessTravel'], bins=10, edgecolor='black')
-plt.title('Histograma de {}'.format('Viajes de Negocios'))
-plt.xlabel('Viajes de Negocios')
-plt.ylabel('Frecuencia')
-plt.show()
-
-plt.hist(df_filtrado['DailyRate'], bins=10, edgecolor='black')
-plt.title('Histograma de {}'.format('Tarifa Diaria'))
-plt.xlabel('Tarifa Diaria')
-plt.ylabel('Frecuencia')
-plt.show()
-
-plt.hist(df_filtrado['Department'], bins=10, edgecolor='black')
-plt.title('Histograma de {}'.format('Departamento'))
-plt.xlabel('Departamento')
-plt.ylabel('Frecuencia')
-plt.show()
-
-plt.hist(df_filtrado['DistanceFromHome'], bins=10, edgecolor='black')
-plt.title('Histograma de {}'.format('Distancia desde casa (KM)'))
-plt.xlabel('Distancia desde casa')
-plt.ylabel('Frecuencia')
-plt.show()
-
-plt.hist(df_filtrado['Education'], bins=10, edgecolor='black')
-plt.title('Histograma de {}'.format('Educación (Nivel)'))
-plt.xlabel('Educacion')
-plt.ylabel('Frecuencia')
-plt.show()
-
-plt.figure(figsize=(10, 5))
-plt.hist(df_filtrado['EducationField'], bins=20, edgecolor='black')
-plt.title('Histograma de {}'.format('Campo de Educación'))
-plt.xlabel('Campo de Educación')
-plt.ylabel('Frecuencia')
-plt.show()
-
-plt.hist(df_filtrado['TotalWorkingYears'], bins=10, edgecolor='black')
-plt.title('Histograma de {}'.format('Años de Trabajo Totales'))
-plt.xlabel('Años de Trabajo Totales')
-plt.ylabel('Frecuencia')
-plt.show()
-
-plt.hist(df_filtrado['WorkLifeBalance'], bins=10, edgecolor='black')
-plt.title('Histograma de {}'.format('Equilibrio entre trabajo y vida personal'))
-plt.xlabel('Equilibrio entre trabajo y vida personal')
-plt.ylabel('Frecuencia')
-plt.show()
 
 """# DATA ANALYSIS (Analisis de datos) #
 
 ## Una vez que hemos realizado la limplieza de los datos, necesitamos ver la correlación de los diferentes campos que hemos elegido para el caso ##
 """
 
-df_filtrado.corr(method = 'spearman')
-
 """## Ahora representamos graficamente los resultados para tener una mejor visualización. ##"""
-
-plt.figure(figsize=(15,10))
-sns.heatmap(df_filtrado.corr(), annot=True, linewidths=.5, vmin = -1, vmax = 1, fmt = '.2g')
 
 """##Identificación de columnas con datos categóricos o identificadores únicos. Esto es útil para determinar si una columna es candidata para ser utilizada como un identificador único o para identificar posibles columnas con categorías que necesitan ser codificadas de manera adecuada."""
 
-print(df_filtrado.nunique())
 
 """## Ahora procedemos a convertir esos valores categoricos a valores binarios ##"""
 
 df_filtrado = pd.get_dummies(df_filtrado, columns=['Attrition', 'BusinessTravel', 'Department', 'EducationField'])
-df_filtrado
 
 """## Las columnas finales a usar seran estas. ##"""
-
-df_filtrado.columns
 
 """# ALGORITMO DE REGRESIÓN LINEAL #"""
 
