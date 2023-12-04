@@ -60,3 +60,8 @@ label.form-label {
     color: #F1AA25;
     font-weight: 600;
 }
+
+nav.navbar.bg-body-tertiary {
+    background-color: #F0AA24!important;
+    height: 60px;
+}
