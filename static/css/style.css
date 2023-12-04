@@ -81,3 +81,11 @@ nav.navbar.bg-body-tertiary {
     padding: 15px;
     color: white;
 }
+.divresul p{
+    text-align: justify;
+}
+.navbar-brand {
+    margin-top: -24px;
+    color: white;
+    text-decoration: underline;
+}

@@ -16,13 +16,19 @@
         <h2 class="resulttitle">Información Recibida</h2>
         <div class="divresul">
             <p>Nombre: {{ nombre }}</p>
-            <p>Nombre: {{ nombre }}</p>
         </div>
         <h2 class="resulttitle">Estudio Realizado</h2>
         <div class="divresul">
             <p> Una vez que proporcionaste tus datos, llevamos a cabo el estudio titulado "Análisis de Retención de Empleados", el cual arrojó los siguientes resultados:</p>
-            <p>Probabilidad de Desertar: {{ resultado[0] * 100 }}%</p>
+    
         </div>
+        <h2 class="resulttitle">Probabilidad de Desertar: </h2>
+        <div class="divresul">
+            <p>{{ resultado[0] * 100 }}%</p>
+        </div>
+
+
+       
         
     </body>
 </html>
