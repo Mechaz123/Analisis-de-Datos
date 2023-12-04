@@ -7,7 +7,6 @@ class Modelo():
     def consultar(self, data):
         data = np.array(data)
         data = data.astype(int)
-        print("DATA:", data)
         model_response = self.model.predict_proba([data])[:,1]
 
         return model_response
