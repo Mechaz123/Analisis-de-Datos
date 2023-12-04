@@ -3,12 +3,12 @@
     padding: 4rem 2rem;
 }
 body{
-    background: #002a69;
+    background: #002a69 !important;
 }
 h1{
     text-align: center;
     background: #002A69;
-    color: honeydew;
+    color: #fff !important;
     text-transform: uppercase;
     font-size: 20px;
     padding: 1rem;
@@ -17,16 +17,13 @@ h1{
     text-align: left;
 }
 .form-control {
-    border: 2px solid #F1AA25;
-    border-radius: 0;
+    border: 2px solid #F1AA25 !important;
 }
 .form-select {
-    border: 2px solid #F1AA25;
-    border-radius: 0;
+    border: 2px solid #F1AA25 !important;
 }
 .form-select:focus, .form-control:focus{
-    border: 2px solid #F1AA25;
-    border-radius: 0;
+    border: 2px solid #F1AA25 !important;
     
 }
 .btn.btn-primary {
