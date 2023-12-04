@@ -1,5 +1,6 @@
 from joblib import load
 import numpy as np
+
 class Modelo():
     def __init__(self):
         self.model = load('backend/modelo_entrenado.joblib')
